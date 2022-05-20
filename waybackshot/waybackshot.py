@@ -128,12 +128,29 @@ class WaybackShot:
 
 
 if __name__ == "__main__":
+    urls = [
+        "https://www.prevention.com/health/a20461629/highly-effective-treatments-for-lower-back-pain/",
+        "https://www.fitnessmagazine.com/health/injury/back/back-pain-causes-and-treatments/",
+        "https://www.bupa.co.uk/health-information/back-care/back-pain",
+        "https://www.mayoclinic.org/",
+        "https://en.wikipedia.org/wiki/Mayo_Clinic",
+        "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3056276/",
+        "https://www.healthline.com/health/lower-back-pain-treatment-options",
+        "https://melioguide.com/physical-therapy-continuing-education/traction-back-pain-treatment/",
+        "http://seattlebackpain.com/treatment-method-pros-cons/",
+        "https://www.cosmeticdentistrycenter.com/blog/can-sealants-eliminate-tooth-decay",
+        "https://www.cdc.gov/vitalsigns/dental-sealants/index.html",
+        "https://www.mouthhealthy.org/en/az-topics/s/sealants",
+        "https://www.cochrane.org/CD001830/ORAL_sealants-preventing-tooth-decay-permanent-teeth",
+    ]
+
     wb = WaybackShot()
 
-    wb.screenshot(
-        "https://moopendentalcare.co.uk/treatments/fissure-sealants/",
-        "20180701",
-        "images",
-        1920,
-        True,
-    )
+    for url in urls:
+        wb.screenshot(
+            url,
+            "20180701",
+            "testing",
+            1920,
+            True,
+        )
