@@ -110,7 +110,10 @@ class WaybackShot:
 
         # Create options for driver
         options = webdriver.ChromeOptions()
-        options.headless = True
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+        options.add_argument("--remote-debugging-port=9222") 
 
         # Init driver
         driver = webdriver.Chrome(

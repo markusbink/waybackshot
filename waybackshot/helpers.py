@@ -11,7 +11,7 @@ class Helper:
         :param dir: Path of directory to create.
         """
 
-        if not os.path.isdir(dir):
+        if dir and not os.path.isdir(dir):
             os.mkdir(dir)
 
     def get_filename_from(self, url: str) -> str:
