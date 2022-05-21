@@ -1,6 +1,6 @@
 import os
 import requests
-from helpers import Helper
+from .helpers import Helper
 from os import path
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
