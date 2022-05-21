@@ -34,7 +34,6 @@ class Helper:
         """
 
         actions = ActionChains(driver)
-        # Move to X Button
         actions.move_by_offset(x, y)
         actions.click()
         actions.perform()

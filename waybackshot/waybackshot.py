@@ -1,3 +1,4 @@
+import os
 import requests
 from helpers import Helper
 from os import path
@@ -105,6 +106,7 @@ class WaybackShot:
         """
 
         # Create options for driver
+        os.environ["WDM_LOG_LEVEL"] = "0"
         options = webdriver.ChromeOptions()
         options.headless = True
 
