@@ -105,8 +105,10 @@ class WaybackShot:
         :return: Selenium Chrome driver.
         """
 
-        # Create options for driver
+        # Disable logs of webdriver manager
         os.environ["WDM_LOG_LEVEL"] = "0"
+
+        # Create options for driver
         options = webdriver.ChromeOptions()
         options.headless = True
 
