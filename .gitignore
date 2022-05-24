@@ -1,3 +1,6 @@
 __pycache__
 images
+build
+dist
+waybackshot.egg-info
 *.png

@@ -1,4 +1,4 @@
-# WayBackShot
+# WaybackShot
 # Copyright (C) 2022 Markus Bink and Marcos Fernández-Pichel
 #
 # This program is free software: you can redistribute it and/or modify
@@ -15,10 +15,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-
 import unittest
-import glob
 from waybackshot import WaybackShot
+
 
 class TestNotAvailable(unittest.TestCase):
     wayback_shot = WaybackShot()
@@ -30,5 +29,6 @@ class TestNotAvailable(unittest.TestCase):
         except:
             self.assertTrue()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

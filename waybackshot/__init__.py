@@ -1,4 +1,4 @@
-# WayBackShot
+# WaybackShot
 # Copyright (C) 2022 Markus Bink and Marcos Fernández-Pichel
 #
 # This program is free software: you can redistribute it and/or modify
