@@ -5,7 +5,7 @@ WaybackShot provides a simple to use API that allows users to retrieve Screensho
 ## Installation (coming soon)
 
 ```bash
-pip3 install wayback-shot
+pip install waybackshot
 ```
 
 ## How to use it
