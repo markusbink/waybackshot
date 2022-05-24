@@ -151,6 +151,7 @@ class WaybackShot:
         options.add_argument("--disable-notifications")
         options.add_argument("--disable-dev-shm-usage")
         options.add_argument("--remote-debugging-port=9222")
+        options.add_argument("--force-device-scale-factor=1")
 
         # Init driver
         driver = webdriver.Chrome(
@@ -198,4 +199,4 @@ if __name__ == "__main__":
     wb = WaybackShot()
 
     for url in urls:
-        wb.screenshot(url=url, date="20180701", include_date=True)
+        wb.screenshot(url=url, date="20180701", overwrite=True, include_date=True)
