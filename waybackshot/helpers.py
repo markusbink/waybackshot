@@ -1,4 +1,4 @@
-# WayBackShot
+# WaybackShot
 # Copyright (C) 2022 Markus Bink and Marcos Fernández-Pichel
 #
 # This program is free software: you can redistribute it and/or modify
@@ -31,7 +31,7 @@ class Helper:
         if dir and not os.path.isdir(dir):
             os.mkdir(dir)
 
-    def get_filename_from(self, url: str) -> str:
+    def get_filename_from(self, url: str, date: str, include_date: bool) -> str:
         """
         Returns the filename of the screenshot.
 
@@ -41,6 +41,10 @@ class Helper:
 
         filename = url.replace("/", "")
         filename = filename.replace(":", "")
+
+        if include_date:
+            filename = f"{date}_{filename}"
+
         return f"{filename}.png"
 
     def perform_click(self, driver: webdriver.Chrome, x: int, y: int) -> None:
