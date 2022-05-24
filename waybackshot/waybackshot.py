@@ -148,6 +148,7 @@ class WaybackShot:
         options = webdriver.ChromeOptions()
         options.add_argument("--headless")
         options.add_argument("--no-sandbox")
+        options.add_argument("--disable-notifications")
         options.add_argument("--disable-dev-shm-usage")
         options.add_argument("--remote-debugging-port=9222")
 
@@ -167,6 +168,12 @@ class WaybackShot:
         return driver
 
     def __get_window_height(self, driver: webdriver.Chrome) -> int:
+        """
+        Get the height of the websites body element.
+
+        :param driver: Selenium Chrome driver.
+        :return: Height of websites body element.
+        """
         return driver.execute_script("return document.body.scrollHeight")
 
 
