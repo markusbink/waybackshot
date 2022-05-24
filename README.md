@@ -13,7 +13,7 @@ pip install waybackshot
 A basic example of how to use WaybackShot is the following:
 
 ```python
-from WaybackShot import WaybackShot
+from waybackshot import WaybackShot
 wayback_shot = WaybackShot()
 
 wayback_shot.screenshot("https://www.example.com/")
@@ -32,7 +32,7 @@ For more flexibility, the following parameters can be passed to the `screenshot`
 A full example might look like this:
 
 ```python
-from WaybackShot import WaybackShot
+from waybackshot import WaybackShot
 wayback_shot = WaybackShot()
 
 wayback_shot.screenshot(
