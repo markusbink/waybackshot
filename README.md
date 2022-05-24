@@ -2,7 +2,7 @@
 
 WaybackShot provides a simple to use API that allows users to retrieve Screenshots of webpages stored on the Wayback Machine.
 
-## Installation (coming soon)
+## Installation
 
 ```bash
 pip install waybackshot
