@@ -3,15 +3,20 @@
 
 from setuptools import setup, find_packages
 
+with open("README.md") as fh:
+    long_description = fh.read()
+
 setup(
     name="waybackshot",
-    version="0.1.0",
+    version="0.1.1",
     description=(
         "A simple API to retrieve screenshots of webpages stored on the Wayback Machine."
     ),
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     url="https://github.com/markusbink/wayback-shot",
-    author="Markus Bink and Marcos Fernández-Pichel",
-    author_email="markus.bink@student.ur.de and marcosfernandez.pichel@usc.e",
+    author="Markus Bink, Marcos Fernández-Pichel",
+    author_email="markus.bink@student.ur.de, marcosfernandez.pichel@usc.e",
     license="GPLv3.0",
     packages=find_packages(),
     zip_safe=False,
