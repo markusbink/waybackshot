@@ -7,11 +7,11 @@ setup(
     name="waybackshot",
     version="0.1.0",
     description=(
-        "A simple to use API that allows users to retrieve Screenshots of webpages stored on the Wayback Machine."
+        "A simple API to retrieve screenshots of webpages stored on the Wayback Machine."
     ),
     url="https://github.com/markusbink/wayback-shot",
     author="Markus Bink and Marcos Fernández-Pichel",
-    author_email="markus.bink@stud.uni-regensburg.de and marcosfernandez.pichel@usc.e",
+    author_email="markus.bink@student.ur.de and marcosfernandez.pichel@usc.e",
     license="GPLv3.0",
     packages=find_packages(),
     zip_safe=False,
