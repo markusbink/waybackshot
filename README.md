@@ -27,7 +27,8 @@ For more flexibility, the following parameters can be passed to the `screenshot`
 - `date: (optional)` Date to request screenshot for in format YYYYMMDD. If not specified, the most recent screenshot will be returned.
 - `dir: (optional)` Path to save screenshot to. If not specified, the screenshot will be saved to the current working directory.
 - `width: (optional)` Width of the screenshot. If not specified, the default width of 1920 will be used.
-- `overwrite: (optional)` If True, the screenshot will be overwritten if it already exists. If False, the screenshot will not be overwritten.
+- `overwrite: (optional)` If True, the screenshot will be overwritten if it already exists, otherwise it will not be overwritten.
+- `include_date: (optional)` If True, the screenshot will be saved with the date of the snapshot, otherwise without it.
 
 A full example might look like this:
 
@@ -36,11 +37,12 @@ from waybackshot import WaybackShot
 wayback_shot = WaybackShot()
 
 wayback_shot.screenshot(
-        "https://www.example.com/",
-        "20220520",
-        "images",
-        1920,
-        True,
+        url="https://www.example.com/",
+        date="20220520",
+        dir="images",
+        width=1920,
+        overwrite=True,
+        include_date=True,
     )
 ```
 
@@ -55,7 +57,7 @@ If you wish to contribute to this package, be sure to follow the steps provied.
 Before you can start, you have to install all packages used in this package.
 
 ```bash
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 This will install the following packages:
