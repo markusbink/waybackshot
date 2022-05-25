@@ -1,6 +1,8 @@
 # WaybackShot
 
-WaybackShot provides a simple to use API that allows users to retrieve Screenshots of webpages stored on the Wayback Machine.
+[![PyPI](https://img.shields.io/pypi/v/waybackshot?color=brightgreen)](https://pypi.org/project/waybackshot/)
+
+A simple API to retrieve screenshots of webpages stored on the Wayback Machine.
 
 ## Installation
 
@@ -46,7 +48,7 @@ wayback_shot.screenshot(
     )
 ```
 
-This will safe the screenshot of `https://www.example.com/` from the closest match to the given date in a folder named `images` with a width of 1920px. If an image with the same name in the same folder already exists, it wil be overwritten.
+This will safe the screenshot of `https://www.example.com/` from the closest match to the given date in a folder named `images` with a width of 1920px. If an image with the same name in the same folder already exists, it wil be overwritten. Further, the filename includes the date of the retrieved snapshot.
 
 ## Development
 
