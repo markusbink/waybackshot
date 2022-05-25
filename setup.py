@@ -8,7 +8,7 @@ with open("README.md") as fh:
 
 setup(
     name="waybackshot",
-    version="0.1.2",
+    version="0.1.3",
     description=(
         "A simple API to retrieve screenshots of webpages stored on the Wayback Machine."
     ),
