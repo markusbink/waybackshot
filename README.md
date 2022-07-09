@@ -27,6 +27,7 @@ For more flexibility, the following parameters can be passed to the `screenshot`
 
 - `url:` URL to request screenshot for.
 - `date: (optional)` Date to request screenshot for in format YYYYMMDD. If not specified, the most recent screenshot will be returned.
+- `filename: (optional)` Filename to save screenshot as. If not specified, the URL will be used.
 - `dir: (optional)` Path to save screenshot to. If not specified, the screenshot will be saved to the current working directory.
 - `width: (optional)` Width of the screenshot. If not specified, the default width of 1920 will be used.
 - `overwrite: (optional)` If True, the screenshot will be overwritten if it already exists, otherwise it will not be overwritten.
@@ -41,6 +42,7 @@ wayback_shot = WaybackShot()
 wayback_shot.screenshot(
         url="https://www.example.com/",
         date="20220520",
+        filename="example-filename",
         dir="images",
         width=1920,
         overwrite=True,
@@ -48,7 +50,7 @@ wayback_shot.screenshot(
     )
 ```
 
-This will safe the screenshot of `https://www.example.com/` from the closest match to the given date in a folder named `images` with a width of 1920px. If an image with the same name in the same folder already exists, it wil be overwritten. Further, the filename includes the date of the retrieved snapshot.
+This will safe the screenshot of `https://www.example.com/` from the closest match to the given date in a folder named `images` with a width of 1920px. If an image with the same name in the same folder already exists, it wil be overwritten. Further, the filename includes the date of the retrieved snapshot as well as uses the specified filename.
 
 ## Development
 

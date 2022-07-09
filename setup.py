@@ -8,13 +8,13 @@ with open("README.md") as fh:
 
 setup(
     name="waybackshot",
-    version="0.1.3",
+    version="0.2.1",
     description=(
         "A simple API to retrieve screenshots of webpages stored on the Wayback Machine."
     ),
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/markusbink/wayback-shot",
+    url="https://github.com/markusbink/waybackshot",
     author="Markus Bink, Marcos Fernández-Pichel",
     author_email="markus.bink@student.ur.de, marcosfernandez.pichel@usc.e",
     license="GPLv3.0",
