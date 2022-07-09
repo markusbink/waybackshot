@@ -34,6 +34,7 @@ class WaybackShot:
         self,
         url: str,
         date: str = None,
+        filename: str = None,
         dir: str = "",
         width: int = 1920,
         overwrite: bool = False,
@@ -44,6 +45,7 @@ class WaybackShot:
 
         :param url: URL to request screenshot for.
         :param date: (optional) Date to request screenshot for in format YYYYMMDD. If not specified, the most recent screenshot will be returned.
+        :param filename: (optional) Filename to save screenshot as. If not specified, the URL will be used.
         :param dir: (optional) Path to save screenshot to. If not specified, the screenshot will be saved to the current working directory.
         :param width: (optional) Width of the screenshot. If not specified, the default width of 1920 will be used.
         :param overwrite: (optional) If True, the screenshot will be overwritten if it already exists. If False, the screenshot will not be overwritten if it already exists.
@@ -55,28 +57,26 @@ class WaybackShot:
         self.width = width
         self.include_date = include_date
 
-        snapshot_url, snapshot_date = self.__getSnapshotInfo(
+        self.snapshot_url, self.snapshot_date = self.__get_snapshot_info(
             self.url_to_screenshot, date
         )
 
-        filename = Helper.get_filename_from(
-            self.url_to_screenshot, snapshot_date, self.include_date
+        image_filename = filename if filename is not None else self.url_to_screenshot
+        self.filename = Helper.get_filename_from(
+            image_filename,
+            self.snapshot_date,
+            self.include_date,
         )
 
-        path_of_image = path.join(self.dir, filename)
-
-        screenshot_exists = path.exists(path_of_image)
+        image_path = path.join(self.dir, self.filename)
+        screenshot_exists = path.exists(image_path)
         if screenshot_exists and not overwrite:
-            print(f"Screenshot for {self.url_to_screenshot} already exists.")
+            print(f"Screenshot {self.image_filename} already exists.")
             return
 
-        self.date = snapshot_date
-        if snapshot_url is None:
-            return
+        self.__get_screenshot_from(self.snapshot_url)
 
-        self.__getScreenshotFrom(snapshot_url)
-
-    def __getSnapshotInfo(
+    def __get_snapshot_info(
         self, url: str, date: str = None
     ) -> Optional[Tuple[str, str]]:
         """
@@ -97,7 +97,7 @@ class WaybackShot:
                 not json_response["archived_snapshots"]
                 or not json_response["archived_snapshots"]["closest"]["available"]
             ):
-                raise Exception(f"No snapshot found for URL {url}.")
+                raise Exception(f"No snapshot found for URL {url}.\n")
 
             url = json_response["archived_snapshots"]["closest"]["url"]
             timestamp = json_response["archived_snapshots"]["closest"]["timestamp"]
@@ -110,7 +110,7 @@ class WaybackShot:
         except Exception as e:
             print(f"Error: {e}")
 
-    def __getScreenshotFrom(self, url: str) -> None:
+    def __get_screenshot_from(self, url: str) -> None:
         """
         Takes a screenshot of the given URL and saves it to the specified location.
 
@@ -124,11 +124,8 @@ class WaybackShot:
         Helper.perform_click(driver, self.width - 20, 20)
 
         # Take Screenshot of specified website
-        filename = Helper.get_filename_from(
-            self.url_to_screenshot, self.date, self.include_date
-        )
         driver.find_element(By.TAG_NAME, "body").screenshot(
-            path.join(self.dir, filename)
+            path.join(self.dir, self.filename)
         )
 
         driver.quit()
@@ -186,6 +183,11 @@ if __name__ == "__main__":
     ]
 
     wb = WaybackShot()
-
     for url in urls:
-        wb.screenshot(url=url, date="20180701", overwrite=True, include_date=True)
+        wb.screenshot(
+            url=url,
+            date="20210701",
+            filename="example-filename",
+            overwrite=True,
+            include_date=True,
+        )
